@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} Js
+  P Karthik is learning how to create dynamic web pages on the server side using pug templates.
+  p Table with the given number of rows and columns where each cell adds the row and column and mods by the number of rows.
+  p With Rows = #{query.rows} and Columns = #{query.cols} we except
+    -
+        rows= Number(query.rows)
+        col= Number(query.cols)
+    if !Number.isInteger(rows)
+        p below mentioned rows are not accurate 
+    else if !Number.isInteger(col)
+        p below mentioned columns are not appropriate
+    else
+       table           
+            - for(let a=0; a<rows; a++) {
+               tr
+                 - for(let b=a; b<col-1; b++) {
+                    td=b
+                 -}        
+                 -   for(let c=0; c<=a; c++){
+                      td=c
+                 -}      
+            - }

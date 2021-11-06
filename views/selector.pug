@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} Js
+  p Karthik is learning how to create dynamic web pages on the server side using pug templates.
+  p Displaying of 3 different images every time you load the page
+  br
+  br
+  - var image_name = ["cantinacrispymelttaco.jpg","cheesygorditacrunch.jpg","crispymelttacoblackbean.jpg","doritoscheesygorditacrunch.jpg","quesarito.jpg"]            
+    -for(let a=0;a<3;a++){
+        - let randnum=Math.floor(Math.random()*5)
+            img(src= `/images/${image_name[randnum]}` alt="image", height="300", width="300")
+        -}

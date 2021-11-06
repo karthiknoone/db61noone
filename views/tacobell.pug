@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the tacobell pug
+   div(class="container-fluid")
+        div(class="row")
+            -
+                let tacobell = [
+                    {
+                        "Itemname": "Crunchwrap Supreme",
+                        "Quantity": 10,
+                        "price": 9
+                    },
+                    {
+                        "Itemname": "Chicken Quesadilla",
+                        "Quantity": 50,
+                        "price": 7
+                    },
+                    {
+                        "Itemname": "Nacho Cheese Doritos® Locos Tacos",
+                        "Quantity": 20,
+                        "price": 4
+                    },                   
+                ]
+            each v,index in tacobell      
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{v.Itemname}
+                    br
+                    br
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{v.Quantity}
+                    br
+                    br
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{v.price}
+  script.                
+        function buy(intemNo)
+        {
+              alert(`you purchased item  ${intemNo + 1}`)
+        }
