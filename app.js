@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const connectionString = process.env.MONGO_CON
+const connectionString = "mongodb+srv://MongoDB:MongoDB@cluster0.atsk0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose = require('mongoose');
 mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 
