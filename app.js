@@ -17,6 +17,7 @@ var tacobell = require("./models/tacobell");
 var resourceRouter = require('./routes/resource');
 
 
+
 // We can seed the collection if needed on server start async function recreateDB(){
 async function recreateDB() {
   // Delete everything 
