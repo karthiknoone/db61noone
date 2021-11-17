@@ -1,0 +1,43 @@
+extends layout 
+ 
+block content 
+  h1= title 
+  - let tacobellid = toShow._id 
+  - let tacobelltype = toShow.tacobell_type 
+  - let quantityq = toShow.quantity
+  - let pricep = toShow.price
+
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{tacobellid} 
+  - let actionid = "/resource/tacobell/" + tacobellid 
+ 
+  form(id='tacobellForm', action=actionid, method="PUT") 
+    div.form-group 
+        label.tacobellAttr(for='tacobell_type ') tacobell type 
+        input#tacobell_type(type='text', name='tacobell_type ', value= tacobelltype ) 
+    div.form-group 
+        label.tacobellAttr(for='quantity') tacobell quantity
+        input#quantity(type='text', name='quantity', value= quantityq ) 
+    div.form-group 
+        label.tacobellAttr(for='price') tacobell price
+        input#price(type='number', name='price', value= pricep) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['tacobellForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target))
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    });
