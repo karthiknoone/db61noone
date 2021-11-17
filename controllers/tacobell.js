@@ -104,7 +104,7 @@ exports.tacobell_view_one_Page = async function (req, res) {
         res.status(500)
         res.send(`{'error': '${err}'}`);
     }
-    //res.send('NOT IMPLEMENTED: tacobell list');
+    res.send('NOT IMPLEMENTED: tacobell list');
 };
 
 // Handle building the view for creating a costume.

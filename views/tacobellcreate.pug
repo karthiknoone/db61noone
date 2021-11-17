@@ -1,0 +1,34 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  form(id='tacobellForm', action="/resource/tacobell", method="POST") 
+    div.form-group 
+        label.tacobellAttr(for='tacobell_type') tacobell type 
+        input#tacobell_type(type='text', name='tacobell_type') 
+    div.form-group 
+        label.tacobellAttr(for='price') tacobell price
+        input#size(type='text', name='price') 
+    div.form-group 
+        label.tacobellAttr(for='quantity') tacobell quantity
+        input#cost(type='number', name='quantity') 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['tacobellForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'POST', 
+        body: new URLSearchParams(new FormData(event.target))
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Save succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Save failed " + error ) 
+      }); 
+    }); 
