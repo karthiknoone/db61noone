@@ -9,4 +9,12 @@ var router = express.Router();
 
 /* GET tacobell */
 router.get('/', tacobell_controlers.tacobell_view_all_Page);
+/* GET details with id of tacobell page */
+router.get('/tacobell/:id', tacobell_controlers.tacobell_detail);
+/* GET detail tacobell page */
+router.get('/detail', tacobell_controlers.tacobell_view_one_Page);
+/* DELETE details with id of tacobell page */
+router.get('/tacobell/:id', tacobell_controlers.tacobell_delete);
+
+
 module.exports = router;
