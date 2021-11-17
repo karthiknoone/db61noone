@@ -1,0 +1,53 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let tacobellid = toShow._id 
+    - let tacobelltype = toShow.tacobell_type 
+    - let quantityc = toShow.quantity
+    - let pricep = toShow.price 
+    - let actionid = "/resource/tacobell/" + tacobellid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='tacobellAttr mr-3') tacobell ID is: 
+        div #{tacobellid} 
+      div.row 
+        div(class='tacobellAttr mr-3') tacobell Type is: 
+        div #{tacobelltype} 
+      div.row 
+        div(class='tacobellAttr mr-3') tacobell quantity is: 
+        div #{quantityc} 
+      div.row 
+        div(class='tacobellAttr mr-3') tacobell Price is: 
+        div #{pricep} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the costume collection 
+      window.location.href='/tacobell' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'       
+      }).then((resp) => { 
+        return resp.json();  
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/tacobell' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    } 
