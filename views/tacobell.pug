@@ -5,6 +5,17 @@ block content
   - let results = thetacobell
   div(class="container-fuild")
     div(class="row")
+      each item in results
+       - let destination = `dispatch(\"/tacobell/update?id=${item._id}\")`
+        div(class="row-sm-2", class="m-1") Item is #{item.tacobell_type} with price is #{item.price} and quantity is #{item.quantity} </br>
+         button.btn(class="btn-primary ml-1", onclick= destination) Update
+
+  script.
+    function dispatch(path){
+      window.location.href=path
+    }
+
+//-
       each result,index in results
         div(class = "col-sm-2" id=index onclick=`buy(${index})`) 
           p #{result.tacobell_type}
