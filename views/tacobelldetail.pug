@@ -3,10 +3,13 @@ extends layout
 block content 
   h1= title
  
-  - let tacobellid = toShow._id 
-  - let tacobelltype = toShow.tacobell_type 
-  - let pricep = toShow.price
-  - let quantityq = toShow.quantity
+  if (toShow == null) 
+    h2 No instance to display
+  else 
+    - let tacobellid = toShow._id 
+    - let tacobelltype = toShow.tacobell_type 
+    - let pricep = toShow.price
+    - let quantityq = toShow.quantity
   div 
     div.row 
       div(class='tacobellAttr mr-3') tacobell ID is: 
