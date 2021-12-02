@@ -30,7 +30,7 @@ exports.tacobell_detail = async function (req, res) {
 exports.tacobell_create_post = async function (req, res) {
     console.log(req.body)
     let document = new tacobell();
-    document.tacobell_type = req.body.tacobell_type;
+    document.itemname = req.body.itemname;
     document.price = req.body.price;
     document.quantity = req.body.quantity;
     try {
@@ -62,8 +62,8 @@ exports.tacobell_update_put = async function (req, res) {
     try {
         let toUpdate = await tacobell.findById(req.params.id);
         // Do updates of properties
-        if (req.body.tacobell_name)
-            toUpdate.tacobell_name = req.body.tacobell_name;
+        if (req.body.itemname)
+            toUpdate.itemname = req.body.itemname;
         if (req.body.price)
             toUpdate.price = req.body.price;
         if (req.body.quantity)

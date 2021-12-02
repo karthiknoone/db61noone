@@ -2,26 +2,30 @@ extends layout
  
 block content 
   h1= title 
-  - let tacobellid = toShow._id 
-  - let tacobelltype = toShow.tacobell_type 
-  - let quantityq = toShow.quantity
-  - let pricep = toShow.price
+  
+  if (toShow == null) 
+    h2 No instance to update
+  else 
+    - let tacobellid = toShow._id 
+    - let itemname = toShow.itemname 
+    - let quantity = toShow.quantity
+    - let price = toShow.price
 
   div.row(class='mb-2') 
     div.mr-1 ID is 
     div #{tacobellid} 
-  - let actionid = "/resource/tacobell/" + tacobellid 
+  - let actionid = "/tacobell/" + tacobellid 
  
   form(id='tacobellForm', action=actionid, method="PUT") 
     div.form-group 
-        label.tacobellAttr(for='tacobell_type ') tacobell type 
-        input#tacobell_type(type='text', name='tacobell_type ', value= tacobelltype ) 
+        label.tacobellAttr(for='itemname ') tacobell type 
+        input#itemname(type='text', name='itemname ', value= itemname ) 
     div.form-group 
         label.tacobellAttr(for='quantity') tacobell quantity
-        input#quantity(type='text', name='quantity', value= quantityq ) 
+        input#quantity(type='text', name='quantity', value= quantity ) 
     div.form-group 
         label.tacobellAttr(for='price') tacobell price
-        input#price(type='number', name='price', value= pricep) 
+        input#price(type='number', name='price', value= price) 
     input(type="submit") 
  
   script. 

@@ -7,7 +7,7 @@ block content
     div(class="row")
       each item in results
        - let destination = `dispatch(\"/tacobell/update?id=${item._id}\")`
-        div(class="row-sm-2", class="m-1") Item is #{item.tacobell_type} with price is #{item.price} and quantity is #{item.quantity} </br>
+        div(class="row-sm-2", class="m-1") Item is #{item.tacobell} with price is #{item.price} and quantity is #{item.quantity} </br>
          button.btn(class="btn-primary ml-1", onclick= destination) Update
 
   script.
@@ -15,14 +15,3 @@ block content
       window.location.href=path
     }
 
-//-
-      each result,index in results
-        div(class = "col-sm-2" id=index onclick=`buy(${index})`) 
-          p #{result.tacobell_type}
-          p #{result.price}
-          p #{result.quantity}
-
-  script.
-    function buy(element){
-      alert(`You purchased item is ${element+1}.`)
-    }

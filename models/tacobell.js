@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const tacobellSchema = mongoose.Schema({
-    tacobell_type: String,
+    itemname: String,
     price: Number,
     quantity: Number
 })

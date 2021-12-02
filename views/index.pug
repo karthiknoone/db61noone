@@ -2,20 +2,15 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  p Peanuts aren’t technically nuts
-  button(type="button", class="btn btn-success", onclick="update()") Press Me
-  br
-  br
-  div(id = "target") 
-    b Display
-  
-  a(href='/tacobell') tacobell link
 
-  script.  
-   var client_count=0;
-     function update() 
-     {
-       client_count++;
-       document.getElementById("target").innerHTML=`Value now ${client_count}`;
-     }
+  if (!user)
+   a(href="/login") Login
+   br
+   br
+   a(href="/register") Register
+  if (user)
+   p You are currently logged in as #{user.username}
+   a(href="/tacobell") Take me to tacobell
+   br
+   br
+   a(href="/logout") Logout

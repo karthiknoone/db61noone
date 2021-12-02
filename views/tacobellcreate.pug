@@ -5,11 +5,11 @@ block content
  
   form(id='tacobellForm', action="/resource/tacobell", method="POST") 
     div.form-group 
-        label.tacobellAttr(for='tacobell_type') tacobell type 
-        input#tacobell_type(type='text', name='tacobell_type') 
+        label.tacobellAttr(for='itemname') tacobell type 
+        input#itemname(type='text', name='itemname') 
     div.form-group 
         label.tacobellAttr(for='price') tacobell price
-        input#size(type='text', name='price') 
+        input#size(type='number', name='price') 
     div.form-group 
         label.tacobellAttr(for='quantity') tacobell quantity
         input#cost(type='number', name='quantity') 

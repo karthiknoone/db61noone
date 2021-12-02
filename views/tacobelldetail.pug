@@ -7,19 +7,19 @@ block content
     h2 No instance to display
   else 
     - let tacobellid = toShow._id 
-    - let tacobelltype = toShow.tacobell_type 
-    - let pricep = toShow.price
-    - let quantityq = toShow.quantity
+    - let itemname = toShow.itemname 
+    - let price = toShow.price
+    - let quantity = toShow.quantity
   div 
     div.row 
       div(class='tacobellAttr mr-3') tacobell ID is: 
       div #{tacobellid} 
     div.row 
       div(class='tacobellAttr mr-3') tacobell type is: 
-      div #{tacobelltype} 
+      div #{itemname} 
     div.row 
       div(class='tacobellAttr mr-3') tacobell price is: 
-      div #{pricep} 
+      div #{price} 
     div.row 
       div(class='tacobellAttr mr-3') tacobell quantity is: 
-      div #{quantityq}
+      div #{quantity}

@@ -7,9 +7,9 @@ block content
     h2 No instance to delete 
   else 
     - let tacobellid = toShow._id 
-    - let tacobelltype = toShow.tacobell_type 
-    - let quantityc = toShow.quantity
-    - let pricep = toShow.price 
+    - let itemname = toShow.itemname 
+    - let quantity = toShow.quantity
+    - let price = toShow.price 
     - let actionid = "/resource/tacobell/" + tacobellid 
     script let actionid = "#{actionid}" 
     div 
@@ -18,13 +18,13 @@ block content
         div #{tacobellid} 
       div.row 
         div(class='tacobellAttr mr-3') tacobell Type is: 
-        div #{tacobelltype} 
+        div #{itemname} 
       div.row 
         div(class='tacobellAttr mr-3') tacobell quantity is: 
-        div #{quantityc} 
+        div #{quantity} 
       div.row 
         div(class='tacobellAttr mr-3') tacobell Price is: 
-        div #{pricep} 
+        div #{price} 
  
     button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
     button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
